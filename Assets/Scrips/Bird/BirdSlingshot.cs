@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class BirdSlingshot : MonoBehaviour
 {
-    public Action<BirdData> birdAsShot;
+    public Action<Bird> birdAsShot;
 
     [SerializeField] private LineRender _lineRender;
     [SerializeField] private float _forceMultiplier = 1000f;
 
-    private BirdData _bird;
+    private Bird _bird;
     private Rigidbody2D _rb;
     private Vector2 _startPosition;
     private Vector2 _mousePosition;
@@ -84,7 +84,7 @@ public class BirdSlingshot : MonoBehaviour
         _bird.transform.position = _startPosition;
     }
     
-    public void ChangeBird(BirdData bird)
+    public void ChangeBird(Bird bird)
     {
         _rb = bird.rb;
         _bird = bird;

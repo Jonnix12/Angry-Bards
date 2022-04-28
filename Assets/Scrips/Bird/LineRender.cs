@@ -5,7 +5,7 @@ using UnityEngine;
 public class LineRender : MonoBehaviour
 {
     [SerializeField] private LineRenderer _lineRenderer;
-    public Vector3[] SimulateArc(Vector2 direction, float forceMultiplier,BirdData bird)
+    public Vector3[] SimulateArc(Vector2 direction, float forceMultiplier,Bird bird)
     {
         float maxDuration = 15f;
         float timeStepInterval = 0.1f;

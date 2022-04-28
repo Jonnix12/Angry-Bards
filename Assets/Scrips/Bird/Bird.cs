@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BirdData : MonoBehaviour
+public class Bird : MonoBehaviour
 {
    public Rigidbody2D rb;
    private bool _isTimerStart = false;
@@ -14,14 +14,13 @@ public class BirdData : MonoBehaviour
        if (!_isTimerStart)
        {
         StartCoroutine(DisableTime());
-        Debug.Log("I");
         _isTimerStart = true;
        }
    }
 
    private IEnumerator DisableTime()
    {
-      yield return new WaitForSeconds(5f);
+      yield return new WaitForSeconds(7f);
       gameObject.SetActive(false);
       StopAllCoroutines();
    }

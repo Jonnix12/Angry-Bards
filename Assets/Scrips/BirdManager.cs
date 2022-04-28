@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BirdManager : MonoBehaviour
 {
-    [SerializeField] private List<BirdData> _birds;
+    [SerializeField] private List<Bird> _birds;
     [SerializeField] private BirdSlingshot _slingshot;
+    private int _currentBirdIndex = 0;
     void Start()
     {
-        _slingshot.birdAsShot += RemoveBird;
+        _slingshot.birdAsShot += NextBird;
         _slingshot.ChangeBird(_birds[0]);
     }
 
-    private void RemoveBird(BirdData bird)
+    private void RemoveBird(Bird bird)
     {
         _birds.Remove(bird);
 
@@ -21,5 +22,18 @@ public class BirdManager : MonoBehaviour
             Debug.Log("Lose");
         }
     }
+
+    private void NextBird(Bird bird)
+    {
+        RemoveBird(_birds[0]);
+        MoveBireds();
+    }
+    
+    public void MoveBireds()
+    {
+        Debug.Log("I");
+        _birds[0].transform.Translate(_slingshot.transform.position * 50f);
+    }
     
 }
+ 
