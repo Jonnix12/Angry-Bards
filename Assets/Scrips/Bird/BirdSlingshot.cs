@@ -42,6 +42,7 @@ public class BirdSlingshot : MonoBehaviour
             _rb.gravityScale = 1;
             AddForce(_direction);
             birdAsShot?.Invoke(_bird);
+            _lineRender.ReSetLine();
         }
         else
         {

@@ -32,7 +32,10 @@ public class BirdManager : MonoBehaviour
     public void MoveBireds()
     {
         Debug.Log("I");
-        _birds[0].transform.Translate(_slingshot.transform.position * 50f);
+        if (_birds.Count > 0)
+        {
+            _birds[0].transform.Translate(_slingshot.transform.position * 50f);
+        }
     }
     
 }
