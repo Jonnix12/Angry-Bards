@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class HP : MonoBehaviour
+public class BirdHp : MonoBehaviour
 {
     public int hp;
-    [SerializeField] private PigAnimation _pigAnimation;
-    
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.TryGetComponent(out Rigidbody2D rb))
@@ -16,11 +15,6 @@ public class HP : MonoBehaviour
             if (rb.velocity.magnitude > 1f)
             {
                 hp--;
-
-                if (_pigAnimation != null)
-                {
-                    _pigAnimation.GetHurt(hp);
-                }
                 
                 if (hp < 1)
                 {

@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class BirdSlingshot : MonoBehaviour
 {
-    [SerializeField] private LineRenderer _lineRenderer;
-    [SerializeField] private Rigidbody2D _rb;
+    public Action<BirdData> birdAsShot;
+
+    [SerializeField] private LineRender _lineRender;
     [SerializeField] private float _forceMultiplier = 1000f;
-    
+
+    private BirdData _bird;
+    private Rigidbody2D _rb;
     private Vector2 _startPosition;
     private Vector2 _mousePosition;
     private Vector2 _direction;
@@ -18,16 +21,18 @@ public class BirdSlingshot : MonoBehaviour
 
     private void Start()
     {
-        _startPosition = transform.position;
+        _startPosition = _bird.transform.position;
         Debug.Log(_startPosition);
     }
+
+    #region MouseInput
 
     private void OnMouseDrag()
     {
         GetMousePosition();
         GetDirection();
         UpdateBirdPosition();
-        _lineRenderer.SetPositions(SimulateArc());
+        _lineRender.SimulateArc(_direction, _forceMultiplier,_bird);
     }
 
     private void OnMouseUp()
@@ -35,7 +40,8 @@ public class BirdSlingshot : MonoBehaviour
         if (_direction.magnitude > 0.5f)
         {
             _rb.gravityScale = 1;
-            AddForce(-_direction);
+            AddForce(_direction);
+            birdAsShot?.Invoke(_bird);
         }
         else
         {
@@ -43,65 +49,52 @@ public class BirdSlingshot : MonoBehaviour
         }
     }
 
+    #endregion
+   
+
+    #region GetPositions
     private void GetMousePosition()
     {
         _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
-
+    
     private void GetDirection()
     {
-        _direction = _mousePosition -_startPosition;
+        _direction = _startPosition - _mousePosition;
+        _direction = _direction.normalized;
+
+    }
+    #endregion
+    
+    #region BirdManagment
+    
+    private void UpdateBirdPosition()
+    {
+        _bird.transform.position = _mousePosition;
         
         if (Vector2.Distance(_startPosition,_mousePosition) > _maxDistance)
         {
-            Vector2 newDirection = _direction.normalized * _maxDistance;
-            _direction = newDirection;
+            _bird.transform.position = -_direction.normalized * _maxDistance;
         }
-    }
-
-    private void AddForce(Vector2 direction)
-    {
-        _rb.AddForce(direction * _forceMultiplier);
-    }
-
-    private void UpdateBirdPosition()
-    {
-        transform.position = _direction;
     }
 
     private void ResetBird()
     {
         _rb.velocity = Vector2.zero;
-        transform.position = _startPosition;
+        _bird.transform.position = _startPosition;
     }
-
-    private void OnDrawGizmosSelected()
+    
+    public void ChangeBird(BirdData bird)
     {
-        Gizmos.DrawRay(transform.position,-_direction);
+        _rb = bird.rb;
+        _bird = bird;
     }
+    
+    #endregion
 
-    private Vector3[] SimulateArc()
+    private void AddForce(Vector2 direction)
     {
-        float maxDuration = 100f;
-        float timeStepInterval = 0.1f;
-        int maxStep = (int) (maxDuration / timeStepInterval);
-
-        Vector3[] points = new Vector3[maxStep];
-            
-        Vector2 directionVector = -_direction;
-        Vector2 launchPosition = transform.position;
-
-        Vector2 vel = -_direction * _forceMultiplier / _rb.mass * Time.fixedDeltaTime;
-
-        for (int i = 0; i < maxStep; i++)
-        {
-            Vector2 calculatedPosition = launchPosition + directionVector * vel * i * timeStepInterval;
-            calculatedPosition.y += Physics2D.gravity.y / 2 * Mathf.Pow(i * timeStepInterval, 2);
-            
-            points[i] = calculatedPosition;
-        }
-
-        
-        return points;
+        _rb.AddForce(direction * _forceMultiplier);
     }
+   
 }
