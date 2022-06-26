@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class PigManager : MonoBehaviour
 {
     [SerializeField] private List<PigHp> _pigs;
 
@@ -10,13 +10,13 @@ public class GameManager : MonoBehaviour
     {
         foreach (var pig in _pigs)
         {
-            pig.PigDie += RemovePig;
+            pig.OnPigDie += RemovePig;
         }
     }
 
     private void RemovePig(PigHp pig)
     {
-        pig.PigDie -= RemovePig;
+        pig.OnPigDie -= RemovePig;
         _pigs.Remove(pig);
 
         if (_pigs.Count <= 0)

@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class BirdSlingshot : MonoBehaviour
 {
-    public Action<Bird> birdAsShot;
-
     [SerializeField] private LineRender _lineRender;
     [SerializeField] private float _forceMultiplier = 1000f;
 
-    private Bird _bird;
+    private BirdCollision _birdCollision;
     private Rigidbody2D _rb;
     private Vector2 _startPosition;
     private Vector2 _mousePosition;
@@ -21,7 +19,7 @@ public class BirdSlingshot : MonoBehaviour
 
     private void Start()
     {
-        _startPosition = _bird.transform.position;
+        _startPosition = _birdCollision.transform.position;
         Debug.Log(_startPosition);
     }
 
@@ -32,7 +30,7 @@ public class BirdSlingshot : MonoBehaviour
         GetMousePosition();
         GetDirection();
         UpdateBirdPosition();
-        _lineRender.SimulateArc(_direction, _forceMultiplier,_bird);
+        _lineRender.SimulateArc(_direction, _forceMultiplier,_birdCollision);
     }
 
     private void OnMouseUp()
@@ -41,7 +39,6 @@ public class BirdSlingshot : MonoBehaviour
         {
             _rb.gravityScale = 1;
             AddForce(_direction);
-            birdAsShot?.Invoke(_bird);
             _lineRender.ReSetLine();
         }
         else
@@ -51,7 +48,6 @@ public class BirdSlingshot : MonoBehaviour
     }
 
     #endregion
-   
 
     #region GetPositions
     private void GetMousePosition()
@@ -71,24 +67,25 @@ public class BirdSlingshot : MonoBehaviour
     
     private void UpdateBirdPosition()
     {
-        _bird.transform.position = _mousePosition;
+        _birdCollision.transform.position = _mousePosition;
         
         if (Vector2.Distance(_startPosition,_mousePosition) > _maxDistance)
         {
-            _bird.transform.position = -_direction.normalized * _maxDistance;
+            _birdCollision.transform.position = -_direction.normalized * _maxDistance;
         }
     }
 
     private void ResetBird()
     {
         _rb.velocity = Vector2.zero;
-        _bird.transform.position = _startPosition;
+        _birdCollision.transform.position = _startPosition;
     }
     
-    public void ChangeBird(Bird bird)
+    public void ChangeBird(BirdCollision birdCollision)
     {
-        _rb = bird.rb;
-        _bird = bird;
+        _rb = birdCollision.rb;
+        _birdCollision = birdCollision;
+        ResetBird();
     }
     
     #endregion

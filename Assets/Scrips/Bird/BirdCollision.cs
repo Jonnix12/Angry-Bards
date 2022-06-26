@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Bird : MonoBehaviour
+public class BirdCollision : MonoBehaviour
 {
+    public event Action<BirdCollision> OnBirdDispos; 
    public Rigidbody2D rb;
    private bool _isTimerStart = false;
    
@@ -21,6 +22,7 @@ public class Bird : MonoBehaviour
    private IEnumerator DisableTime()
    {
       yield return new WaitForSeconds(7f);
+      OnBirdDispos?.Invoke(this);
       gameObject.SetActive(false);
       StopAllCoroutines();
    }

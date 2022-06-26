@@ -6,10 +6,10 @@ using UnityEngine.Serialization;
 
 public class PigHp : MonoBehaviour
 {
-    public Action<PigHp> PigDie;
+    public event Action<PigHp> OnPigDie;
     
     public int hp;
-    [SerializeField] private PigAnimation _pigAnimation;
+    [SerializeField] private CharacterAnimation characterAnimation;
     
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -18,11 +18,11 @@ public class PigHp : MonoBehaviour
             if (rb.velocity.magnitude > 1f)
             {
                 hp--;
-                _pigAnimation.GetHurt(hp);
+                characterAnimation.GetHurt(hp);
                 
                 if (hp < 1)
                 {
-                    PigDie?.Invoke(this);
+                    OnPigDie?.Invoke(this);
                     gameObject.SetActive(false);                  
                 }
             }

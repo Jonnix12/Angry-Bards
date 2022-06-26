@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class BirdManager : MonoBehaviour
 {
-    [SerializeField] private List<Bird> _birds;
+    [SerializeField] private List<BirdCollision> _birds;
     [SerializeField] private BirdSlingshot _slingshot;
-    private int _currentBirdIndex = 0;
-    void Start()
+  
+    void Awake()
     {
-        _slingshot.birdAsShot += NextBird;
         _slingshot.ChangeBird(_birds[0]);
+        
+        for (int i = 0; i < _birds.Count; i++)
+        {
+            _birds[i].OnBirdDispos += NextBird;
+        }
     }
 
-    private void RemoveBird(Bird bird)
+    private void RemoveBird(BirdCollision birdCollision)
     {
-        _birds.Remove(bird);
+        _birds.Remove(birdCollision);
 
         if (_birds.Count <= 0 )
         {
@@ -23,15 +27,15 @@ public class BirdManager : MonoBehaviour
         }
     }
 
-    private void NextBird(Bird bird)
+    private void NextBird(BirdCollision birdCollision)
     {
-        RemoveBird(_birds[0]);
-        MoveBireds();
+        RemoveBird(birdCollision);
+        _slingshot.ChangeBird(_birds[0]);
+        //MoveBirds();
     }
     
-    public void MoveBireds()
+    public void MoveBirds()
     {
-        Debug.Log("I");
         if (_birds.Count > 0)
         {
             _birds[0].transform.Translate(_slingshot.transform.position * 50f);

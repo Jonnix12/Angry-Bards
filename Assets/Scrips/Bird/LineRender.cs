@@ -5,7 +5,7 @@ using UnityEngine;
 public class LineRender : MonoBehaviour
 {
     [SerializeField] private LineRenderer _lineRenderer;
-    public void SimulateArc(Vector2 direction, float forceMultiplier,Bird bird)
+    public void SimulateArc(Vector2 direction, float forceMultiplier,BirdCollision birdCollision)
     {
         float maxDuration = 15f;
         float timeStemp = 0.1f;
@@ -16,9 +16,9 @@ public class LineRender : MonoBehaviour
         Vector3[] points = new Vector3[maxStep];
             
         Vector2 directionVector = direction;
-        Vector2 launchPosition = bird.transform.position;
+        Vector2 launchPosition = birdCollision.transform.position;
 
-        float velocity = forceMultiplier / bird.rb.mass * Time.fixedDeltaTime;
+        float velocity = forceMultiplier / birdCollision.rb.mass * Time.fixedDeltaTime;
 
         for (int i = 0; i < maxStep; i++)
         {

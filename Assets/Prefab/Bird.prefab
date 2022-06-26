@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3603739709933612123}
   - component: {fileID: 3603739709933612127}
   - component: {fileID: 3603739709933612124}
-  - component: {fileID: 4625605824003695921}
+  - component: {fileID: 2929455235048008497}
   m_Layer: 3
   m_Name: Bird
   m_TagString: Untagged
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 7
---- !u!114 &4625605824003695921
+--- !u!114 &2929455235048008497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
