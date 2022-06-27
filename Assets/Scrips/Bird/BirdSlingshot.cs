@@ -19,7 +19,8 @@ public class BirdSlingshot : MonoBehaviour
 
     private void Start()
     {
-        _startPosition = _birdCollision.transform.position;
+        _startPosition = transform.position;
+        _birdCollision.transform.position = transform.position;
         Debug.Log(_startPosition);
     }
 
@@ -37,6 +38,7 @@ public class BirdSlingshot : MonoBehaviour
     {
         if (_direction.magnitude > 0.5f)
         {
+            _birdCollision.SetCollider(true);
             _rb.gravityScale = 1;
             AddForce(_direction);
             _lineRender.ReSetLine();
@@ -71,7 +73,7 @@ public class BirdSlingshot : MonoBehaviour
         
         if (Vector2.Distance(_startPosition,_mousePosition) > _maxDistance)
         {
-            _birdCollision.transform.position = -_direction.normalized * _maxDistance;
+            _birdCollision.transform.position = _startPosition - _direction.normalized * _maxDistance;
         }
     }
 

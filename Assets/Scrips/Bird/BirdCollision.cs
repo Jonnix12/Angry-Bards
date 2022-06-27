@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class BirdCollision : MonoBehaviour
-{
-    public event Action<BirdCollision> OnBirdDispos; 
+{ 
+    public event Action<BirdCollision> OnBirdDispos;
+    [SerializeField] private CircleCollider2D _collider;
    public Rigidbody2D rb;
    private bool _isTimerStart = false;
    
@@ -14,8 +15,9 @@ public class BirdCollision : MonoBehaviour
    {
        if (!_isTimerStart)
        {
-        StartCoroutine(DisableTime());
-        _isTimerStart = true;
+            StartCoroutine(DisableTime());
+            _isTimerStart = true;
+            Debug.Log("I");
        }
    }
 
@@ -25,5 +27,10 @@ public class BirdCollision : MonoBehaviour
       OnBirdDispos?.Invoke(this);
       gameObject.SetActive(false);
       StopAllCoroutines();
+   }
+
+   public void SetCollider(bool isOn)
+   {
+       _collider.enabled = isOn;
    }
 }
