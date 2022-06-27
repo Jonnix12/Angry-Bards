@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BirdManager : MonoBehaviour
 {
+    public event Action OnBirdDied; 
     [SerializeField] private List<BirdCollision> _birds;
     [SerializeField] private BirdSlingshot _slingshot;
   
@@ -23,7 +25,7 @@ public class BirdManager : MonoBehaviour
 
         if (_birds.Count <= 0 )
         {
-            Debug.Log("Lose");
+           OnBirdDied?.Invoke();
         }
     }
 

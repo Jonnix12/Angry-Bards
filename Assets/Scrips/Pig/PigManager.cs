@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PigManager : MonoBehaviour
 {
+    public event Action OnPigDied; 
     [SerializeField] private List<PigHp> _pigs;
-
+    
     void Start()
     {
         foreach (var pig in _pigs)
@@ -21,7 +23,7 @@ public class PigManager : MonoBehaviour
 
         if (_pigs.Count <= 0)
         {
-            Debug.Log("Win");
+            OnPigDied?.Invoke();
         }
     }
 }

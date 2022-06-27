@@ -17,7 +17,6 @@ public class BirdCollision : MonoBehaviour
        {
             StartCoroutine(DisableTime());
             _isTimerStart = true;
-            Debug.Log("I");
        }
    }
 
