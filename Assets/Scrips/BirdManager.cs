@@ -8,7 +8,8 @@ public class BirdManager : MonoBehaviour
     public event Action OnBirdDied; 
     [SerializeField] private List<BirdCollision> _birds;
     [SerializeField] private BirdSlingshot _slingshot;
-  
+
+
     void Awake()
     {
         _slingshot.ChangeBird(_birds[0]);
@@ -23,7 +24,7 @@ public class BirdManager : MonoBehaviour
     {
         _birds.Remove(birdCollision);
 
-        if (_birds.Count <= 0 )
+        if (_birds.Count <= 0)
         {
            OnBirdDied?.Invoke();
         }
@@ -44,5 +45,10 @@ public class BirdManager : MonoBehaviour
         }
     }
     
+    public int CuntBirds()
+    {
+        int birds = _birds.Count;
+        return birds;
+    }
 }
  

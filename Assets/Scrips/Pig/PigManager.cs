@@ -26,4 +26,12 @@ public class PigManager : MonoBehaviour
             OnPigDied?.Invoke();
         }
     }
+
+    public bool PigsRemaind()
+    {
+        if (_pigs.Count > 0)
+            return true;
+
+        return false;
+    }
 }

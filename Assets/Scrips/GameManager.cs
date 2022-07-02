@@ -6,23 +6,31 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private BirdManager _birdManager;
     [SerializeField] private PigManager _pigManager;
-    [SerializeField] private GameObject _winCanves;
-    [SerializeField] private GameObject _loseCanves;
+    [SerializeField] private EndGameMenu _gameOverMenu;
+
+    private bool _isGameOver = false;
     void Start()
     {
         _birdManager.OnBirdDied += Lose;
         _pigManager.OnPigDied += Win;
-        _winCanves.SetActive(false);
-        _loseCanves.SetActive(false);
+        _gameOverMenu.endGameCanvas.SetActive(false);
     }
 
     private void Win()
     {
-        _winCanves.SetActive(true);
+        if(!_isGameOver)
+        {
+            _isGameOver = true;
+           _gameOverMenu.Win();
+        }
     }
 
     private void Lose()
     {
-        _loseCanves.SetActive(true);
+        if (!_isGameOver)
+        {
+            _isGameOver = true;
+            _gameOverMenu.Lose();
+        }
     }
 }

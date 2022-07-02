@@ -6,9 +6,23 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject _homeScreen;
+    [SerializeField] private GameObject _levelSelection;
+
     public void LoadLevel(int levelIndex)
     {
         SceneManager.LoadScene(levelIndex);
     }
     
+    public void HomeScreen()
+    {
+        _homeScreen.SetActive(true);
+        _levelSelection.SetActive(false);
+    }
+
+    public void LevelSelection()
+    {
+        _levelSelection.SetActive(true);
+        _homeScreen.SetActive(false);
+    }
 }
