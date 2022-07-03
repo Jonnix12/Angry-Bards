@@ -13,14 +13,14 @@ public class GameManager : MonoBehaviour
     {
         _birdManager.OnBirdDied += Lose;
         _pigManager.OnPigDied += Win;
-        _gameOverMenu.endGameCanvas.SetActive(false);
+        _gameOverMenu.pauseOrFinishedCanvas.SetActive(false);
     }
 
     private void Win()
     {
         if(!_isGameOver)
         {
-            _gameOverMenu.endGameCanvas.SetActive(true);
+            _gameOverMenu.pauseOrFinishedCanvas.SetActive(true);
             _isGameOver = true;
            _gameOverMenu.Win();
         }
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         if (!_isGameOver)
         {
-            _gameOverMenu.endGameCanvas.SetActive(true);
+            _gameOverMenu.pauseOrFinishedCanvas.SetActive(true);
             _isGameOver = true;
             _gameOverMenu.Lose();
         }

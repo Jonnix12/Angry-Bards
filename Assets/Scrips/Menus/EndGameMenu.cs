@@ -8,7 +8,7 @@ public class EndGameMenu : MonoBehaviour
 {
     private BirdManager _birdManager;
     private MainMenu mainMenu;
-    [SerializeField] public GameObject endGameCanvas;
+    [SerializeField] public GameObject pauseOrFinishedCanvas;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private GameObject star0;
     [SerializeField] private GameObject star1;
@@ -43,11 +43,21 @@ public class EndGameMenu : MonoBehaviour
         mainMenu = FindObjectOfType<MainMenu>();
         mainMenu.LevelSelection();
         SceneManager.UnloadScene(currentIndex);
-    }    
+    }  
+    
+    public void StopMenu()
+    {
+        pauseOrFinishedCanvas.SetActive(true);
+        _text.text = "Stop Menu";
+    }
+
+    public void ReturnToGame()
+    {
+        pauseOrFinishedCanvas.SetActive(false);
+    }
 
     public void Win()
     {
-        
         _text.text = "You Won!";
         int pigs = _birdManager.CuntBirds();
         if (pigs == 3)
@@ -60,7 +70,7 @@ public class EndGameMenu : MonoBehaviour
 
     public void Lose()
     {
-        endGameCanvas.SetActive(true);
+        pauseOrFinishedCanvas.SetActive(true);
         _text.text = "You Lost!";
         star0.SetActive(true);
     }
