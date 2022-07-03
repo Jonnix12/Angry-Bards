@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     {
         if(!_isGameOver)
         {
+            _gameOverMenu.endGameCanvas.SetActive(true);
             _isGameOver = true;
            _gameOverMenu.Win();
         }
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         if (!_isGameOver)
         {
+            _gameOverMenu.endGameCanvas.SetActive(true);
             _isGameOver = true;
             _gameOverMenu.Lose();
         }

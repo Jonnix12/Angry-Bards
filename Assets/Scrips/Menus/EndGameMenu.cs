@@ -47,7 +47,7 @@ public class EndGameMenu : MonoBehaviour
 
     public void Win()
     {
-        endGameCanvas.SetActive(true);
+        
         _text.text = "You Won!";
         int pigs = _birdManager.CuntBirds();
         if (pigs == 3)
