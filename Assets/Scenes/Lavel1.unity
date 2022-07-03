@@ -1734,14 +1734,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8968364156218854951, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968364157047627166, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8968364157107962613, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
       propertyPath: m_Name
       value: EndGameCanves
@@ -1829,14 +1821,6 @@ PrefabInstance:
     - target: {fileID: 8968364157107962617, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968364157393891675, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968364157653127188, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
