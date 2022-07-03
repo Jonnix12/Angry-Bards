@@ -6,23 +6,23 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private BirdManager _birdManager;
     [SerializeField] private PigManager _pigManager;
-    [SerializeField] private EndGameMenu _gameOverMenu;
+    [SerializeField] private EndGameMenu _stopGameOverMenuText;
 
     private bool _isGameOver = false;
     void Start()
     {
         _birdManager.OnBirdDied += Lose;
         _pigManager.OnPigDied += Win;
-        _gameOverMenu.pauseOrFinishedCanvas.SetActive(false);
+        _stopGameOverMenuText.pauseOrFinishedCanvas.SetActive(false);
     }
 
     private void Win()
     {
         if(!_isGameOver)
         {
-            _gameOverMenu.pauseOrFinishedCanvas.SetActive(true);
+            _stopGameOverMenuText.pauseOrFinishedCanvas.SetActive(true);
             _isGameOver = true;
-           _gameOverMenu.Win();
+           _stopGameOverMenuText.Win();
         }
     }
 
@@ -30,9 +30,9 @@ public class GameManager : MonoBehaviour
     {
         if (!_isGameOver)
         {
-            _gameOverMenu.pauseOrFinishedCanvas.SetActive(true);
+            _stopGameOverMenuText.pauseOrFinishedCanvas.SetActive(true);
             _isGameOver = true;
-            _gameOverMenu.Lose();
+            _stopGameOverMenuText.Lose();
         }
     }
 }

@@ -45,11 +45,7 @@ public class EndGameMenu : MonoBehaviour
         SceneManager.UnloadScene(currentIndex);
     }  
     
-    public void StopMenu()
-    {
-        pauseOrFinishedCanvas.SetActive(true);
-        _text.text = "Stop Menu";
-    }
+
 
     public void ReturnToGame()
     {
