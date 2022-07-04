@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _birdManager: {fileID: 1656863151}
   _pigManager: {fileID: 1656863150}
-  _stopGameOverMenuText: {fileID: 0}
+  _stopGameOverMenuText: {fileID: 1121457957}
 --- !u!4 &1765015187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1718581298856131475, guid: 15d4beff3b688dd4cae89697bc9aef6f, type: 3}
