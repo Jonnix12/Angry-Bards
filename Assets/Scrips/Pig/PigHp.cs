@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class PigHp : MonoBehaviour
 {
     public event Action<PigHp> OnPigDie;
-    
+
     public int hp;
     [SerializeField] private CharacterAnimation characterAnimation;
     
@@ -23,6 +24,7 @@ public class PigHp : MonoBehaviour
                 if (hp < 1)
                 {
                     OnPigDie?.Invoke(this);
+                    
                     gameObject.SetActive(false);                  
                 }
             }
