@@ -641,6 +641,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ede71203baaba8419d5caf84c2b5c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &663700151 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8968364157729746337, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
+  m_PrefabInstance: {fileID: 663700149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &764237686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1953,6 +1964,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 663700150}
+    - target: {fileID: 4353949148504594735, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
+      propertyPath: _stopMenuText
+      value: 
+      objectReference: {fileID: 663700151}
+    - target: {fileID: 4353949148504594735, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
+      propertyPath: pauseOrFinishedCanvas
+      value: 
+      objectReference: {fileID: 93522106}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
 --- !u!114 &1237430248622442969 stripped

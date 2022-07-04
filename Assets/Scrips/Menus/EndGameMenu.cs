@@ -17,6 +17,10 @@ public class EndGameMenu : MonoBehaviour
 
     public void NextLevel()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+            SceneManager.LoadScene(0);
+
+        else
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -45,7 +49,11 @@ public class EndGameMenu : MonoBehaviour
         SceneManager.UnloadScene(currentIndex);
     }  
     
-
+    public void StopMenu()
+    {
+        pauseOrFinishedCanvas.SetActive(true);
+        _text.text = "Stop menu";
+    }
 
     public void ReturnToGame()
     {
