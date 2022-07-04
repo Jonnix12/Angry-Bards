@@ -16,17 +16,30 @@ public class EndGameMenu : MonoBehaviour
     [SerializeField] private GameObject star2;
     [SerializeField] private GameObject star3;
 
+    private int sceneIndex;
+
+    private void Start()
+    {
+        sceneIndex =SceneManager.GetActiveScene().buildIndex;
+    }
     public void NextLevel()
     {
         if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            SaveAndLoad.SaveSceneIndex(3);
             SceneManager.LoadScene(0);
+        }
 
         else
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        {
+            SaveAndLoad.SaveSceneIndex(sceneIndex+1);
+            SceneManager.LoadScene(sceneIndex+1);
+        }
     }
 
     public void HomeScreen()
     {
+        SaveAndLoad.SaveSceneIndex(sceneIndex);
         SceneManager.LoadScene(0);
     }
 
@@ -37,6 +50,7 @@ public class EndGameMenu : MonoBehaviour
 
     public void LevelSelection()
     {
+        SaveAndLoad.SaveSceneIndex(sceneIndex);
         StartCoroutine(LoadLevelSelection());
     }
 

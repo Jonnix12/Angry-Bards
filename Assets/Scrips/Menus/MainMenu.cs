@@ -20,6 +20,12 @@ public class MainMenu : MonoBehaviour
         _levelSelection.SetActive(false);
     }
 
+    public void QuickLoad()
+    {
+        int loadSceneInd = SaveAndLoad.GetSceneIndex();
+        SceneManager.LoadScene(loadSceneInd);
+    }
+
     public void LevelSelection()
     {
         _levelSelection.SetActive(true);
