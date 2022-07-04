@@ -123,26 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &6962730 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1237430247706831751, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
-  m_PrefabInstance: {fileID: 1135454500}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6962731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e80da24e9beeed40a3dfd89a7b97d3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseOrFinishedCanvas: {fileID: 0}
-  _stopMenuText: {fileID: 0}
-  Score: {fileID: 0}
 --- !u!1 &47182579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1035,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5961815134523879603, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
+      propertyPath: _birdManager
+      value: 
+      objectReference: {fileID: 1743740562}
     - target: {fileID: 8968364157107962613, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
       propertyPath: m_Name
       value: Stop/EndGameCanves
@@ -1154,12 +1138,28 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5961815134523879603, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
   m_PrefabInstance: {fileID: 1121457956}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1121457959}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ede71203baaba8419d5caf84c2b5c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1121457958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8968364157729746337, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
+  m_PrefabInstance: {fileID: 1121457956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1121457959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8968364157107962613, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
+  m_PrefabInstance: {fileID: 1121457956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1135454500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1267,6 +1267,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StopMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4353949148504594735, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
+      propertyPath: _stopMenuText
+      value: 
+      objectReference: {fileID: 1121457958}
+    - target: {fileID: 4353949148504594735, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
+      propertyPath: pauseOrFinishedCanvas
+      value: 
+      objectReference: {fileID: 1121457959}
     - target: {fileID: 5600717982929808231, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -12
@@ -1470,6 +1478,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9050ef0264805b14fb0fd853f5398376, type: 3}
+--- !u!114 &1743740562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6337056551736877840, guid: 4d2d70c3ea235114cbe8549b73b6dd1a, type: 3}
+  m_PrefabInstance: {fileID: 1914282934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c1a935a00d65e43801b400b6916d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1765015187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1718581298856131475, guid: 15d4beff3b688dd4cae89697bc9aef6f, type: 3}

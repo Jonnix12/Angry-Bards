@@ -6,6 +6,7 @@ using TMPro;
 
 public class EndGameMenu : MonoBehaviour
 {
+    [SerializeField]
     private BirdManager _birdManager;
     private MainMenu mainMenu;
     [SerializeField] public GameObject pauseOrFinishedCanvas;
@@ -63,10 +64,10 @@ public class EndGameMenu : MonoBehaviour
     public void Win()
     {
         _text.text = "You Won!";
-        int pigs = _birdManager.CuntBirds();
-        if (pigs == 3)
+        int birds = _birdManager.CuntBirds();
+        if (birds == 2)
             star3.SetActive(true);
-        else if (pigs == 2)
+        else if (birds == 1)
             star2.SetActive(true);
         else
             star1.SetActive(true);

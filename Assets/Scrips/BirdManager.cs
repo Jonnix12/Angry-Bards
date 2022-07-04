@@ -32,8 +32,10 @@ public class BirdManager : MonoBehaviour
 
     private void NextBird(BirdCollision birdCollision)
     {
-        RemoveBird(birdCollision);
-        _slingshot.ChangeBird(_birds[0]);
+            RemoveBird(birdCollision);
+
+        if(_birds.Count > 0)
+            _slingshot.ChangeBird(_birds[0]);
         //MoveBirds();
     }
     

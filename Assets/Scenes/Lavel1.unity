@@ -428,6 +428,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StopMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4353949148504594735, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
+      propertyPath: _stopMenuText
+      value: 
+      objectReference: {fileID: 8968364158186695555}
+    - target: {fileID: 4353949148504594735, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
+      propertyPath: pauseOrFinishedCanvas
+      value: 
+      objectReference: {fileID: 8968364158186695556}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c8976c9e9ed8084cbbc977a22cf52af, type: 3}
 --- !u!114 &451710018 stripped
@@ -920,7 +928,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5961815134523879603, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
   m_PrefabInstance: {fileID: 8968364158186695554}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8968364158186695556}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ede71203baaba8419d5caf84c2b5c46, type: 3}
@@ -1207,6 +1215,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d2d70c3ea235114cbe8549b73b6dd1a, type: 3}
+--- !u!114 &1905619767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6337056551736877840, guid: 4d2d70c3ea235114cbe8549b73b6dd1a, type: 3}
+  m_PrefabInstance: {fileID: 1905619766}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c1a935a00d65e43801b400b6916d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1952321756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,6 +1881,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5961815134523879603, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
+      propertyPath: _birdManager
+      value: 
+      objectReference: {fileID: 1905619767}
     - target: {fileID: 8968364157107962613, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
       propertyPath: m_Name
       value: EndGameCanves
@@ -1952,3 +1975,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
+--- !u!114 &8968364158186695555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8968364157729746337, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
+  m_PrefabInstance: {fileID: 8968364158186695554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8968364158186695556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8968364157107962613, guid: 874056595d3e15f44bd56b52df1c3985, type: 3}
+  m_PrefabInstance: {fileID: 8968364158186695554}
+  m_PrefabAsset: {fileID: 0}
