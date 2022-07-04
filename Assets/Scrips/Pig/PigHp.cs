@@ -16,17 +16,26 @@ public class PigHp : MonoBehaviour
     {
         if (col.gameObject.TryGetComponent(out Rigidbody2D rb))
         {
-            if (rb.velocity.magnitude > 1f)
+            if (rb.velocity.magnitude > 1.5f)
+            {
+                hp -= 3;
+                characterAnimation.GetHurt(hp);
+            }
+            else if (rb.velocity.magnitude > 1f)
+            {
+                hp -= 2;
+                characterAnimation.GetHurt(hp);
+            }
+            else if(rb.velocity.magnitude > 0.5f)
             {
                 hp--;
                 characterAnimation.GetHurt(hp);
-                
-                if (hp < 1)
-                {
-                    OnPigDie?.Invoke(this);
-                    
-                    gameObject.SetActive(false);                  
-                }
+            }
+            
+            if (hp < 1)
+            {
+                OnPigDie?.Invoke(this);
+                gameObject.SetActive(false);                  
             }
         }
     }
