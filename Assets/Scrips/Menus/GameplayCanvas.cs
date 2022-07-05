@@ -14,6 +14,4 @@ public class GameplayCanvas : MonoBehaviour
         pauseOrFinishedCanvas.SetActive(true);
         _stopMenuText.text = "Stop Menu";
     }
-
-
 }

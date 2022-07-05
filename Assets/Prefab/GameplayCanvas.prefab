@@ -389,8 +389,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EndGameMenu, Assembly-CSharp
+      - m_Target: {fileID: 4353949148504594735}
+        m_TargetAssemblyTypeName: GameplayCanvas, Assembly-CSharp
         m_MethodName: StopMenu
         m_Mode: 1
         m_Arguments:
