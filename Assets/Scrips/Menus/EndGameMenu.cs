@@ -22,6 +22,17 @@ public class EndGameMenu : MonoBehaviour
     {
         sceneIndex =SceneManager.GetActiveScene().buildIndex;
     }
+
+    private void OnEnable()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1;
+    }
+
     public void NextLevel()
     {
         if (SceneManager.GetActiveScene().buildIndex == 3)
@@ -79,9 +90,9 @@ public class EndGameMenu : MonoBehaviour
     {
         _text.text = "You Won!";
         int birds = _birdManager.CuntBirds();
-        if (birds == 2)
+        if (birds == 3)
             star3.SetActive(true);
-        else if (birds == 1)
+        else if (birds == 2)
             star2.SetActive(true);
         else
             star1.SetActive(true);
